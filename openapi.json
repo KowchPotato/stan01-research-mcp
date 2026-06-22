@@ -1,0 +1,59 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Stan01 Research Intelligence",
+    "version": "2.2.0",
+    "description": "Autonomous research synthesis and market intelligence"
+  },
+  "servers": [
+    {
+      "url": "https://jpworker5.tail8de215.ts.net",
+      "description": "Production"
+    }
+  ],
+  "paths": {
+    "/mcp/call": {
+      "post": {
+        "summary": "Call a research tool",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Tool response"
+          },
+          "402": {
+            "description": "Payment required"
+          }
+        }
+      }
+    },
+    "/.well-known/x402": {
+      "get": {
+        "summary": "x402 payment manifest",
+        "responses": {
+          "200": {
+            "description": "x402 manifest JSON"
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "summary": "Health check",
+        "responses": {
+          "200": {
+            "description": "Service status"
+          }
+        }
+      }
+    }
+  }
+}
